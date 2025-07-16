@@ -10,7 +10,7 @@ An ASP.NET Core Web API project to manage a collection of books. Supports basic 
 - Entity Framework Core
 - SQL Server (LocalDB)
 - Visual Studio 2022+
-- Git & GitHub
+- Swagger for API testing
 
 ---
 
