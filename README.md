@@ -21,27 +21,51 @@ An ASP.NET Core Web API project to manage a collection of books. Supports basic 
 - .NET SDK 9.0 installed
 - SQL Server LocalDB
 
-### Steps
+### ⚙️ Steps to Run
 
-1. **Clone the repository**
+1. **Clone the Repository**
    ```bash
    git clone https://github.com/Preete07/BookManagementAPI.git
    cd BookManagementAPI
+   ```
 
-Apply EF Core Migration: 
-   Run the following commands from the Package Manager Console in Visual Studio:
-       1. Add a Migration
-          Add-Migration InitialMigration
-       2. Apply the Migration (Create DB)
-          Update-Database
-   This will create the BooksDb database and Books table
+2. **Apply EF Core Migration**
 
-Sample API Requests & Responses:
-🔍 Get All Books
-Request:
+   Open **Package Manager Console** in Visual Studio and run:
+
+   - Add a Migration:
+     ```powershell
+     Add-Migration InitialMigration
+     ```
+
+   - Apply the Migration:
+     ```powershell
+     Update-Database
+     ```
+
+   ✅ This will create the `BooksDb` database and the `Books` table.
+
+3. **Run the Project**
+
+   - Press `F5` or click **Start Debugging** in Visual Studio.
+   - Swagger UI will be available at:
+     ```
+     https://localhost:<port>/swagger
+     ```
+
+---
+
+## 📡 Sample API Requests & Responses
+
+### 🔍 Get All Books
+
+**Request:**
+```
 GET /api/Books
+```
 
-Response:
+**Response:**
+```json
 [
   {
     "id": "c2313e7a-0ec2-41b1-8fd2-df504c6d78a9",
@@ -56,60 +80,97 @@ Response:
     "year": 2018
   }
 ]
+```
 
-🔍 Get Book by ID
-Request:
+---
+
+### 🔍 Get Book by ID
+
+**Request:**
+```
 GET /api/Books/c2313e7a-0ec2-41b1-8fd2-df504c6d78a9
+```
 
-Response:
+**Response:**
+```json
 {
   "id": "c2313e7a-0ec2-41b1-8fd2-df504c6d78a9",
   "title": "The Alchemist",
   "author": "Paulo Coelho",
   "year": 1988
 }
+```
 
-➕ Add a New Book
-Request:
+---
+
+### ➕ Add a New Book
+
+**Request:**
+```
 POST /api/Books
 Content-Type: application/json
+```
 
+**Body:**
+```json
 {
   "title": "Deep Work",
   "author": "Cal Newport",
   "year": 2016
 }
+```
 
-Response:
+**Response:**
+```json
 {
   "id": "efcb1012-61a3-4703-bf1f-4f3bd1f0b0c5",
   "title": "Deep Work",
   "author": "Cal Newport",
   "year": 2016
 }
+```
 
-🔄 Update a Book
-Request:
+---
+
+### 🔄 Update a Book
+
+**Request:**
+```
 PUT /api/Books/efcb1012-61a3-4703-bf1f-4f3bd1f0b0c5
 Content-Type: application/json
+```
 
+**Body:**
+```json
 {
   "title": "Deep Work: Rules for Focused Success",
   "author": "Cal Newport",
   "year": 2016
 }
+```
 
-Response:
+**Response:**
+```json
 {
   "id": "efcb1012-61a3-4703-bf1f-4f3bd1f0b0c5",
   "title": "Deep Work: Rules for Focused Success",
   "author": "Cal Newport",
   "year": 2016
 }
+```
 
-❌ Delete a Book
-Request:
+---
+
+### ❌ Delete a Book
+
+**Request:**
+```
 DELETE /api/Books/efcb1012-61a3-4703-bf1f-4f3bd1f0b0c5
+```
 
-Response:
+**Response:**
+```
 204 No Content
+```
+
+---
